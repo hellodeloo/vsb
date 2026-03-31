@@ -1,0 +1,21 @@
+# Folder & file view configuration
+.DS_Store
+Desktop.ini
+._*
+Thumbs.db
+.Spotlight-V100
+.Trashes
+
+# Config
+ftp-config.json
+deploy.sh
+
+# Dev & IDE
+.idea
+.vscode
+.sass-cache/
+node_modules/
+dist/doc/
+
+# App
+*storybook.log
