@@ -1,4 +1,4 @@
-# Vivre Saint-Brieuc - WordPress Local
+# VSB
 
 Setup rapide pour lancer le site en local avec Docker.
 
