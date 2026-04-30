@@ -1,0 +1,13 @@
+/*
+Theme Name: Vivre Saint-Brieuc Child (Twenty Twenty)
+Theme URI: https://example.com/
+Description: Child theme for Twenty Twenty.
+Author: Vivre Saint-Brieuc
+Template: twentytwenty
+Version: 1.0.0
+Text Domain: vivre-saint-brieuc-twenty-child
+*/
+
+:root {
+  --vsb-accent: #0f766e;
+}

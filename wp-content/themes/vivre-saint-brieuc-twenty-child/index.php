@@ -7,8 +7,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="La gauche écologiste et citoyenne">
 		<title>Vivre Saint-Brieuc</title>
-		<link rel="stylesheet" href="static/reset.css">
-		<link rel="stylesheet" href="static/styles.css">
+		<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/css/reset.css">
+		<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/css/styles.css">
 		<link href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css" rel="stylesheet">
 	</head>
 
@@ -16,7 +16,7 @@
 		<div style="max-width:1000px;margin: 16px auto;">
 			<h1>
 				<span class="visually-hidden">Vivre Saint-Brieuc</span>
-				<img src="static/logo_vivre_st_brieuc_2026_HD_RVB.png" alt="" class="img-fluid">
+				<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/logo_vivre_st_brieuc_2026_HD_RVB.png" alt="" class="img-fluid">
 			</h1>
 		</div>
 		<footer>

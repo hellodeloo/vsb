@@ -9,6 +9,19 @@ Thumbs.db
 # Config
 ftp-config.json
 deploy.sh
+.env
+.env.*
+!.env.example
+wp-config.php
+*.sql
+*.sql.gz
+
+# WordPress core (ne pas commiter)
+wp-admin/
+wp-includes/
+
+# Copilot agents (local customization)
+.github/agents/
 
 # Dev & IDE
 .idea
