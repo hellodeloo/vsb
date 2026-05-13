@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Akismet Anti-spam: Spam Protection - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-04-23 23:00:27+0000\n"
+"PO-Revision-Date: 2026-05-04 11:55:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -134,7 +134,7 @@ msgstr "Si les statistiques ont bien été récupérées."
 
 #: abilities/class-akismet-ability-get-stats.php:56
 msgid "The time interval for stats. Options: \"6-months\", \"all\", or \"60-days\"."
-msgstr "L’intervalle de temps pour les statistiques. Options : « 6 mois », « Tous » ou « 60 jours »."
+msgstr "L’intervalle de temps pour les statistiques. Options : \"6-months\", \"all\", or \"60-days\"."
 
 #: abilities/class-akismet-ability-get-stats.php:42
 msgid "Retrieves Akismet spam protection statistics including spam blocked count, accuracy percentage, and other key metrics."

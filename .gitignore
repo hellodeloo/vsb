@@ -19,6 +19,7 @@ wp-config.php
 # WordPress core (ne pas commiter)
 wp-admin/
 wp-includes/
+wp-content/uploads/
 xmlrpc.php
 index.php
 wp-activate.php

@@ -8,6 +8,273 @@ Version: 1.0.0
 Text Domain: vivre-saint-brieuc-twenty-child
 */
 
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+
 :root {
-  --vsb-accent: #0f766e;
+  --color-primary: #878787;
+  --color-green: #009b9c;
+  --color-red: #e83754;
+  --color-orange: #ef7d0a;
+}
+
+body:not(.overlay-header) .primary-menu > li > a {
+  color: var(--color-primary) !important;
+}
+
+/* Logo plus grand dans le header */
+@media (min-width: 700px) {
+  .site-logo img {
+    max-height: 12rem; /* 120px desktop */
+  }
+
+  .pagination-single {
+    font-size: 2.2rem;
+  }
+
+  .pagination-single .arrow {
+    font-size: 2.4rem;
+  }
+}
+
+blockquote {
+  border-color: var(--color-green) !important;
+  color: var(--color-primary);
+  font-style: italic;
+}
+
+.header-footer-group .color-accent {
+  color: var(--color-green);
+}
+
+.social-icons a {
+  background-color: var(--color-orange) !important;
+}
+
+.bg-accent,
+.bg-accent-hover:hover,
+.bg-accent-hover:focus {
+  background-color: var(--color-red) !important;
+}
+
+.pagination-single .arrow {
+  color: var(--color-orange) !important;
+}
+
+.border-color-accent,
+.border-color-accent-hover:hover,
+.border-color-accent-hover:focus {
+  border-color: var(--color-red) !important;
+}
+
+.entry-categories-inner a {
+  color: var(--color-red) !important;
+}
+
+
+.fill-children-accent,
+.fill-children-accent * {
+  fill: var(--color-red) !important;
+}
+
+
+.section-inner.thin,
+.post-meta-wrapper,
+.post-nav-links,
+.author-bio,
+[class*="__inner-container"] .wp-block-group:not(.alignfull):not(.alignwide):not(.alignleft):not(.alignright),
+[class*="__inner-container"] .wp-block-cover:not(.alignfull):not(.alignwide):not(.alignleft):not(.alignright),
+.entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide),
+[class*="__inner-container"] > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide),
+.alignfull > figcaption,
+.alignfull > .wp-caption-text,
+.comment-respond p:not(.comment-notes) {
+  max-width: 72rem;
+}
+
+@media (min-width: 660px) {
+  figure.wp-block-gallery.alignleft {
+    margin-left: calc((100vw - 72rem - 8rem) / -2);
+  }
+
+  figure.wp-block-gallery.alignright {
+    margin-right: calc((100vw - 72rem - 8rem) / -2);
+  }
+
+  .entry-content > p .alignleft,
+  .entry-content > .wp-block-image .alignleft {
+    margin-left: calc((100vw - 72rem - 8rem) / -2);
+  }
+
+  .entry-content > p .alignright,
+  .entry-content > .wp-block-image .alignright {
+    margin-right: calc((100vw - 72rem - 8rem) / -2);
+  }
+}
+
+@media (min-width: 1000px) {
+  .entry-content > .alignleft,
+  .entry-content > p .alignleft,
+  .entry-content > .wp-block-image .alignleft {
+    right: calc((100vw - 72rem) / 2 + 72rem + 2rem);
+    max-width: calc((100% - 72rem) / 2 - 6rem);
+  }
+
+  [class*="wp-block"].alignwide [class*="__inner-container"] > .alignleft,
+  [class*="wp-block"].alignwide [class*="__inner-container"] > p .alignleft,
+  [class*="wp-block"].alignwide [class*="__inner-container"] > .wp-block-image .alignleft,
+  [class*="wp-block"].alignfull [class*="__inner-container"] > .alignleft,
+  [class*="wp-block"].alignfull [class*="__inner-container"] > p .alignleft,
+  [class*="wp-block"].alignfull [class*="__inner-container"] > .wp-block-image .alignleft {
+    right: calc((100% - 72rem) / 2 + 72rem + 4rem);
+    max-width: calc((100% - 72rem) / 2 - 4rem);
+  }
+
+  [class*="wp-block"].alignwide.has-background [class*="__inner-container"] > .alignleft,
+  [class*="wp-block"].alignwide.has-background [class*="__inner-container"] > p .alignleft,
+  [class*="wp-block"].alignwide.has-background [class*="__inner-container"] > .wp-block-image .alignleft {
+    right: calc((100% - 72rem) / 2 + 72rem);
+  }
+
+  .entry-content > .alignright,
+  .entry-content > p .alignright,
+  .entry-content > .wp-block-image .alignright,
+  [class*="__inner-container"] > .alignright {
+    left: calc((100vw - 72rem) / 2 + 72rem + 2rem);
+    max-width: calc((100% - 72rem) / 2 - 6rem);
+  }
+
+  [class*="wp-block"].alignwide [class*="__inner-container"] > .alignright,
+  [class*="wp-block"].alignwide [class*="__inner-container"] > p .alignright,
+  [class*="wp-block"].alignwide [class*="__inner-container"] > .wp-block-image .alignright,
+  [class*="wp-block"].alignfull [class*="__inner-container"] > .alignright,
+  [class*="wp-block"].alignfull [class*="__inner-container"] > p .alignright,
+  [class*="wp-block"].alignfull [class*="__inner-container"] > .wp-block-image .alignright {
+    left: calc((100% - 72rem) / 2 + 72rem + 4rem);
+    max-width: calc((100% - 72rem) / 2 - 4rem);
+  }
+
+  [class*="wp-block"].alignwide.has-background [class*="__inner-container"] > .alignright,
+  [class*="wp-block"].alignwide.has-background [class*="__inner-container"] > p .alignright,
+  [class*="wp-block"].alignwide.has-background [class*="__inner-container"] > .wp-block-image .alignright {
+    left: calc((100% - 72rem) / 2 + 72rem + 4rem);
+  }
+}
+
+@media (min-width: 1220px) {
+  [class*="wp-block"].alignwide.has-background [class*="__inner-container"] > .alignleft,
+  [class*="wp-block"].alignwide.has-background [class*="__inner-container"] > p .alignleft,
+  [class*="wp-block"].alignwide.has-background [class*="__inner-container"] > .wp-block-image .alignleft {
+    right: calc((100% - 72rem) / 2 + 72rem - 2rem);
+  }
+
+  [class*="wp-block"].alignwide.has-background [class*="__inner-container"] > .alignright,
+  [class*="wp-block"].alignwide.has-background [class*="__inner-container"] > p .alignright,
+  [class*="wp-block"].alignwide.has-background [class*="__inner-container"] > .wp-block-image .alignright {
+    left: calc((100% - 72rem) / 2 + 72rem + 6rem);
+  }
+}
+
+@media (min-width: 1280px) {
+  .entry-content > .alignleft,
+  .entry-content > p .alignleft,
+  .entry-content > .wp-block-image .alignleft {
+    right: calc((100vw - 72rem) / 2 + 72rem + 4rem);
+  }
+
+  .entry-content > .alignright,
+  .entry-content > p .alignright,
+  .entry-content > .wp-block-image .alignright {
+    left: calc((100vw - 72rem) / 2 + 72rem + 4rem);
+  }
+}
+
+@supports (font-variation-settings: normal) {
+  body,
+  input,
+  textarea,
+  button,
+  .button,
+  .faux-button,
+  .faux-button.more-link,
+  .wp-block-button__link,
+  .wp-block-file__button,
+  .has-drop-cap:not(:focus)::first-letter,
+  .entry-content,
+  .entry-content .wp-block-archives,
+  .entry-content .wp-block-categories,
+  .entry-content .wp-block-latest-posts,
+  .entry-content .wp-block-latest-comments,
+  .entry-content .wp-block-cover-image p,
+  .entry-content .wp-block-pullquote,
+  .entry-content h1,
+  .entry-content h2,
+  .entry-content h3,
+  .entry-content h4,
+  .entry-content h5,
+  .entry-content h6,
+  .entry-content cite,
+  .entry-content figcaption,
+  .entry-content table,
+  .entry-content address,
+  .entry-content .wp-caption-text,
+  .entry-content .wp-block-file,
+  .widget-content cite,
+  .widget-content figcaption,
+  .widget-content .wp-caption-text,
+  .widget_text p,
+  .widget_text ol,
+  .widget_text ul,
+  .widget_text dl,
+  .widget_text dt,
+  .widget-content .rssSummary {
+    font-family: "Manrope", Verdana, Arial, sans-serif !important;
+    font-weight: 600;
+  }
+}
+
+.entry-content hr:not(.has-background),
+hr.styled-separator,
+cite,
+figcaption,
+.wp-caption-text,
+.site-description,
+.toggle-inner .toggle-text,
+.post-meta,
+:root .has-secondary-color,
+.entry-content .wp-block-archives li,
+.entry-content .wp-block-categories li,
+.entry-content .wp-block-latest-posts li,
+.wp-block-latest-comments__comment-date,
+.wp-block-latest-posts__post-date,
+.wp-block-embed figcaption,
+.wp-block-image figcaption,
+.wp-block-pullquote cite,
+.comment-metadata,
+.comment-respond .comment-notes,
+.comment-respond .logged-in-as,
+.pagination .dots,
+.widget .post-date,
+.widget .rss-date,
+.widget_archive li,
+.widget_categories li,
+.widget_pages li,
+.widget_meta li,
+.widget_nav_menu li,
+.footer-credits .privacy-policy,
+.powered-by-wordpress,
+.to-the-top {
+  color: var(--color-primary);
+}
+
+:root .has-secondary-background-color {
+  background-color: var(--color-primary);
+}
+
+.wp-block-pullquote {
+  font-style: italic;
+}
+
+.wp-block-pullquote::before {
+  color: var(--color-green);
+  font-style: normal;
 }
