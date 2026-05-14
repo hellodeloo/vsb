@@ -39,20 +39,24 @@
 
 					</div><!-- .footer-credits -->
 
-					<a class="to-the-top" href="#site-header">
-						<span class="to-the-top-long">
-							<?php
-							/* translators: %s: HTML character for up arrow. */
-							printf( __( 'To the top %s', 'twentytwenty' ), '<span class="arrow" aria-hidden="true">&uarr;</span>' );
-							?>
-						</span><!-- .to-the-top-long -->
-						<span class="to-the-top-short">
-							<?php
-							/* translators: %s: HTML character for up arrow. */
-							printf( __( 'Up %s', 'twentytwenty' ), '<span class="arrow" aria-hidden="true">&uarr;</span>' );
-							?>
-						</span><!-- .to-the-top-short -->
-					</a><!-- .to-the-top -->
+					<?php
+					$has_footer_menu = has_nav_menu( 'footer' );
+					?>
+
+					<?php if ( $has_footer_menu ) { ?>
+            <ul class="footer-bottom-menu reset-list-style">
+              <?php
+              wp_nav_menu(
+                array(
+                  'container'      => '',
+                  'depth'          => 1,
+                  'items_wrap'     => '%3$s',
+                  'theme_location' => 'footer',
+                )
+              );
+              ?>
+            </ul>
+					<?php } ?>
 
 				</div><!-- .section-inner -->
 

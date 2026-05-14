@@ -8,56 +8,233 @@ Version: 1.0.0
 Text Domain: vivre-saint-brieuc-twenty-child
 */
 
+/* ==========================================================================
+   1. IMPORTS
+   ========================================================================== */
+
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
 
-:root {
-  --color-primary: #878787;
-  --color-green: #009b9c;
-  --color-red: #e83754;
-  --color-orange: #ef7d0a;
+/* ==========================================================================
+   2. POLICES LOCALES — CeraPRO
+   ========================================================================== */
+
+@font-face {
+  font-family: "CeraPRO";
+  src: url("assets/fonts/CeraPRO-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
-body:not(.overlay-header) .primary-menu > li > a {
-  color: var(--color-primary) !important;
-}
-
-/* Logo plus grand dans le header */
-@media (min-width: 700px) {
-  .site-logo img {
-    max-height: 12rem; /* 120px desktop */
-  }
-
-  .pagination-single {
-    font-size: 2.2rem;
-  }
-
-  .pagination-single .arrow {
-    font-size: 2.4rem;
-  }
-}
-
-blockquote {
-  border-color: var(--color-green) !important;
-  color: var(--color-primary);
+@font-face {
+  font-family: "CeraPRO";
+  src: url("assets/fonts/CeraPRO-RegularItalic.ttf") format("truetype");
+  font-weight: 400;
   font-style: italic;
+  font-display: swap;
 }
 
-.header-footer-group .color-accent {
-  color: var(--color-green);
+@font-face {
+  font-family: "CeraPRO";
+  src: url("assets/fonts/CeraPRO-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
 }
 
-.social-icons a {
-  background-color: var(--color-orange) !important;
+@font-face {
+  font-family: "CeraPRO";
+  src: url("assets/fonts/CeraPRO-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
+@font-face {
+  font-family: "CeraPRO";
+  src: url("assets/fonts/CeraPRO-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "CeraPRO";
+  src: url("assets/fonts/CeraPRO-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Dalia";
+  src: url("assets/fonts/Dalia.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ==========================================================================
+   2. VARIABLES CSS (palette de couleurs)
+   ========================================================================== */
+
+:root {
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-primary: #878787; /* gris texte par défaut */
+  --color-green: #009b9c; /* vert/sarcelle — accents éditoriaux */
+  --color-red: #e83754; /* rouge — boutons et accents forts */
+  --color-orange: #ef7d0a; /* orange — icônes sociales, footer, flèches */
+}
+
+/* ==========================================================================
+   3. TYPOGRAPHIE
+   ========================================================================== */
+
+/* Applique Manrope sur tous les éléments texte quand les polices variables
+   sont supportées par le navigateur */
+@supports (font-variation-settings: normal) {
+  body,
+  input,
+  textarea,
+  button,
+  .button,
+  .faux-button,
+  .faux-button.more-link,
+  .wp-block-button__link,
+  .wp-block-file__button,
+  .has-drop-cap:not(:focus)::first-letter,
+  .entry-content,
+  .entry-content .wp-block-archives,
+  .entry-content .wp-block-categories,
+  .entry-content .wp-block-latest-posts,
+  .entry-content .wp-block-latest-comments,
+  .entry-content .wp-block-cover-image p,
+  .entry-content .wp-block-pullquote,
+  .entry-content h1,
+  .entry-content h2,
+  .entry-content h3,
+  .entry-content h4,
+  .entry-content h5,
+  .entry-content h6,
+  .entry-content cite,
+  .entry-content figcaption,
+  .entry-content table,
+  .entry-content address,
+  .entry-content .wp-caption-text,
+  .entry-content .wp-block-file,
+  .widget-content cite,
+  .widget-content figcaption,
+  .widget-content .wp-caption-text,
+  .widget_text p,
+  .widget_text ol,
+  .widget_text ul,
+  .widget_text dl,
+  .widget_text dt,
+  .widget-content .rssSummary {
+    font-family: "CeraPRO", "Manrope", Verdana, Arial, sans-serif !important;
+    font-weight: 400;
+  }
+}
+
+h1,
+.heading-size-1 {
+  font-family: "Dalia", "CeraPRO", "Manrope", Verdana, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700 !important;
+}
+
+h2 {
+  font-weight: 600 !important;
+
+  b,
+  strong {
+    font-weight: inherit !important;
+  }
+}
+
+b,
+strong {
+  font-weight: 500;
+}
+
+h3,
+h4,
+h5,
+h6,
+.faux-heading {
+  font-weight: 500 !important;
+
+  b,
+  strong {
+    font-weight: inherit !important;
+  }
+}
+
+@media (min-width: 700px) {
+  h1,
+  .heading-size-1,
+  h2.entry-title {
+    font-size: 6rem;
+  }
+}
+
+@media (min-width: 1220px) {
+  h1,
+  .heading-size-1,
+  h2.entry-title {
+    font-size: 7.4rem;
+  }
+}
+
+/* ==========================================================================
+   4. COULEURS — APPLICATION DE LA PALETTE
+   ========================================================================== */
+
+/* Couleur principale (gris) sur tous les éléments de texte secondaire */
+.entry-content hr:not(.has-background),
+hr.styled-separator,
+cite,
+figcaption,
+.wp-caption-text,
+.site-description,
+.toggle-inner .toggle-text,
+.post-meta,
+:root .has-secondary-color,
+.entry-content .wp-block-archives li,
+.entry-content .wp-block-categories li,
+.entry-content .wp-block-latest-posts li,
+.wp-block-latest-comments__comment-date,
+.wp-block-latest-posts__post-date,
+.wp-block-embed figcaption,
+.wp-block-image figcaption,
+.wp-block-pullquote cite,
+.comment-metadata,
+.comment-respond .comment-notes,
+.comment-respond .logged-in-as,
+.pagination .dots,
+.widget .post-date,
+.widget .rss-date,
+.widget_archive li,
+.widget_categories li,
+.widget_pages li,
+.widget_meta li,
+.widget_nav_menu li,
+.footer-credits .privacy-policy,
+.powered-by-wordpress,
+.to-the-top {
+  color: var(--color-primary);
+}
+
+:root .has-secondary-background-color {
+  background-color: var(--color-primary);
+}
+
+/* Couleur rouge sur les accents (fonds, bordures, SVG fill, catégories) */
 .bg-accent,
 .bg-accent-hover:hover,
 .bg-accent-hover:focus {
   background-color: var(--color-red) !important;
-}
-
-.pagination-single .arrow {
-  color: var(--color-orange) !important;
 }
 
 .border-color-accent,
@@ -66,17 +243,32 @@ blockquote {
   border-color: var(--color-red) !important;
 }
 
-.entry-categories-inner a {
-  color: var(--color-red) !important;
-}
-
-
 .fill-children-accent,
 .fill-children-accent * {
   fill: var(--color-red) !important;
 }
 
+/* Étiquettes de catégorie en rouge */
+.entry-categories-inner a {
+  color: var(--color-red) !important;
+}
 
+/* ==========================================================================
+   5. HEADER & NAVIGATION
+   ========================================================================== */
+
+/* Logo agrandi sur desktop */
+@media (min-width: 700px) {
+  .site-logo img {
+    max-height: 12rem; /* 120px desktop */
+  }
+}
+
+/* ==========================================================================
+   6. CONTENU — LARGEUR MAX ET MISE EN PAGE
+   ========================================================================== */
+
+/* Largeur maximale du contenu alignée sur 72rem */
 .section-inner.thin,
 .post-meta-wrapper,
 .post-nav-links,
@@ -91,6 +283,7 @@ blockquote {
   max-width: 72rem;
 }
 
+/* Alignements flottants des images et galeries — petits écrans (≥ 660px) */
 @media (min-width: 660px) {
   figure.wp-block-gallery.alignleft {
     margin-left: calc((100vw - 72rem - 8rem) / -2);
@@ -111,6 +304,7 @@ blockquote {
   }
 }
 
+/* Alignements flottants — écrans moyens (≥ 1000px) */
 @media (min-width: 1000px) {
   .entry-content > .alignleft,
   .entry-content > p .alignleft,
@@ -160,6 +354,7 @@ blockquote {
   }
 }
 
+/* Alignements flottants — grands écrans (≥ 1220px) */
 @media (min-width: 1220px) {
   [class*="wp-block"].alignwide.has-background [class*="__inner-container"] > .alignleft,
   [class*="wp-block"].alignwide.has-background [class*="__inner-container"] > p .alignleft,
@@ -174,6 +369,7 @@ blockquote {
   }
 }
 
+/* Alignements flottants — très grands écrans (≥ 1280px) */
 @media (min-width: 1280px) {
   .entry-content > .alignleft,
   .entry-content > p .alignleft,
@@ -188,88 +384,18 @@ blockquote {
   }
 }
 
-@supports (font-variation-settings: normal) {
-  body,
-  input,
-  textarea,
-  button,
-  .button,
-  .faux-button,
-  .faux-button.more-link,
-  .wp-block-button__link,
-  .wp-block-file__button,
-  .has-drop-cap:not(:focus)::first-letter,
-  .entry-content,
-  .entry-content .wp-block-archives,
-  .entry-content .wp-block-categories,
-  .entry-content .wp-block-latest-posts,
-  .entry-content .wp-block-latest-comments,
-  .entry-content .wp-block-cover-image p,
-  .entry-content .wp-block-pullquote,
-  .entry-content h1,
-  .entry-content h2,
-  .entry-content h3,
-  .entry-content h4,
-  .entry-content h5,
-  .entry-content h6,
-  .entry-content cite,
-  .entry-content figcaption,
-  .entry-content table,
-  .entry-content address,
-  .entry-content .wp-caption-text,
-  .entry-content .wp-block-file,
-  .widget-content cite,
-  .widget-content figcaption,
-  .widget-content .wp-caption-text,
-  .widget_text p,
-  .widget_text ol,
-  .widget_text ul,
-  .widget_text dl,
-  .widget_text dt,
-  .widget-content .rssSummary {
-    font-family: "Manrope", Verdana, Arial, sans-serif !important;
-    font-weight: 600;
-  }
-}
+/* ==========================================================================
+   7. BLOCS ÉDITORIAUX (blockquote, pullquote)
+   ========================================================================== */
 
-.entry-content hr:not(.has-background),
-hr.styled-separator,
-cite,
-figcaption,
-.wp-caption-text,
-.site-description,
-.toggle-inner .toggle-text,
-.post-meta,
-:root .has-secondary-color,
-.entry-content .wp-block-archives li,
-.entry-content .wp-block-categories li,
-.entry-content .wp-block-latest-posts li,
-.wp-block-latest-comments__comment-date,
-.wp-block-latest-posts__post-date,
-.wp-block-embed figcaption,
-.wp-block-image figcaption,
-.wp-block-pullquote cite,
-.comment-metadata,
-.comment-respond .comment-notes,
-.comment-respond .logged-in-as,
-.pagination .dots,
-.widget .post-date,
-.widget .rss-date,
-.widget_archive li,
-.widget_categories li,
-.widget_pages li,
-.widget_meta li,
-.widget_nav_menu li,
-.footer-credits .privacy-policy,
-.powered-by-wordpress,
-.to-the-top {
+/* Blockquote : bordure verte, texte gris, italique */
+blockquote {
+  border-color: var(--color-green) !important;
   color: var(--color-primary);
+  font-style: italic;
 }
 
-:root .has-secondary-background-color {
-  background-color: var(--color-primary);
-}
-
+/* Pullquote : italique, décoratif en vert */
 .wp-block-pullquote {
   font-style: italic;
 }
@@ -277,4 +403,151 @@ figcaption,
 .wp-block-pullquote::before {
   color: var(--color-green);
   font-style: normal;
+}
+
+/* ==========================================================================
+   8. PAGINATION
+   ========================================================================== */
+
+/* Taille de la pagination article précédent/suivant sur desktop */
+.pagination-single {
+  font-size: 1.6rem;
+  font-family: "Dalia";
+  text-transform: uppercase;
+
+  a {
+    font-weight: 500;
+  }
+}
+
+@media (min-width: 700px) {
+  .pagination-single {
+    font-size: 1.8rem;
+  }
+}
+
+/* ==========================================================================
+   9. FOOTER & HEADER
+   ========================================================================== */
+
+/* Fond orange pour la zone widgets/nav du footer */
+.footer-nav-widgets-wrapper {
+  background-color: var(--color-green);
+}
+
+/* Icônes réseaux sociaux en orange */
+.social-icons a {
+  background-color: var(--color-white) !important;
+  color: var(--color-black);
+}
+
+/* Liens du menu footer en blanc pour contraste sur fond orange */
+.footer-menu-wrapper,
+.footer-menu-wrapper a {
+  color: var(--color-white);
+  font-family: "Dalia";
+  text-transform: uppercase;
+  font-size: 1.8rem;
+}
+
+.footer-bottom-menu {
+  li {
+    display: inline-block;
+    margin-left: 1.5rem;
+  }
+}
+
+.primary-menu,
+.primary-menu a {
+  font-family: "Dalia";
+  text-transform: uppercase;
+  color: var(--color-black) !important;
+  font-weight: 500;
+}
+
+.footer-bottom-menu,
+.footer-bottom-menu a {
+  font-family: "Dalia";
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.footer-copyright,
+.footer-copyright a {
+  font-family: "Dalia";
+  text-transform: uppercase;
+  color: var(--color-dark);
+  font-weight: 500;
+}
+
+#site-footer {
+  font-size: 1.4rem;
+}
+
+.archive-header {
+  background-color: var(--color-red);
+  color: var(--color-white);
+}
+
+.archive-header .color-accent {
+  color: var(--color-black);
+}
+
+.header-inner {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 2.8rem 0;
+}
+
+.header-navigation-wrapper {
+  display: initial;
+}
+
+.primary-menu-wrapper {
+  display: block;
+}
+
+/* ==========================================================================
+   10. META
+   ========================================================================== */
+
+.meta-text,
+.meta-text a {
+  color: var(--color-primary) !important;
+}
+
+/* ==========================================================================
+   11. HOME
+   ========================================================================== */
+#home-content .home-grid-item {
+  margin-bottom: 8rem;
+}
+
+#home-content .pagination-single a {
+  justify-content: center;
+}
+
+@media (min-width: 1000px) {
+  #home-content .home-grid {
+    display: flex;
+  }
+
+  #home-content .home-grid-item {
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 700px) {
+  #home-content .entry-content > * {
+    width: calc(100% - 8rem);
+  }
+
+  .home-grid-item .heading-size-1 {
+    font-size: 4.8rem;
+  }
+
+  #home-content .post-inner {
+    padding-top: 4rem;
+  }
 }
