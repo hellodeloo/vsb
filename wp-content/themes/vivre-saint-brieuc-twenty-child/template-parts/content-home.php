@@ -13,13 +13,28 @@
 
 ?>
 
-<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+<?php $loop_post_id = (int) get_the_ID(); ?>
+
+<article <?php post_class( '', $loop_post_id ); ?> id="post-<?php echo esc_attr( $loop_post_id ); ?>">
 	<?php
 
 	get_template_part( 'template-parts/entry-header' );
 
-	if ( ! is_search() ) {
-		get_template_part( 'template-parts/featured-image' );
+	if ( ! is_search() && has_post_thumbnail( $loop_post_id ) && ! post_password_required( $loop_post_id ) ) {
+		$caption = get_the_post_thumbnail_caption( $loop_post_id );
+		?>
+
+		<figure class="featured-media">
+			<div class="featured-media-inner section-inner medium">
+				<?php echo get_the_post_thumbnail( $loop_post_id ); ?>
+
+				<?php if ( $caption ) : ?>
+					<figcaption class="wp-caption-text"><?php echo wp_kses_post( $caption ); ?></figcaption>
+				<?php endif; ?>
+			</div><!-- .featured-media-inner -->
+		</figure><!-- .featured-media -->
+
+		<?php
 	}
 
 	?>
@@ -29,11 +44,14 @@
 		<div class="entry-content">
 
 			<?php
-			if ( is_search() || ! is_singular() && 'summary' === get_theme_mod( 'blog_content', 'full' ) ) {
-				the_excerpt();
-			} else {
-				the_content( __( 'Continue reading', 'twentytwenty' ) );
+			$excerpt      = trim( (string) get_post_field( 'post_excerpt', $loop_post_id ) );
+			$post_content = (string) get_post_field( 'post_content', $loop_post_id );
+
+			if ( '' === $excerpt ) {
+				$excerpt = wp_trim_words( wp_strip_all_tags( strip_shortcodes( $post_content ) ), 55, '...' );
 			}
+
+			echo wp_kses_post( wpautop( $excerpt ) );
 			?>
 
 		</div><!-- .entry-content -->
@@ -54,9 +72,9 @@
 		edit_post_link();
 
 		// Single bottom post meta.
-		twentytwenty_the_post_meta( get_the_ID(), 'single-bottom' );
+		twentytwenty_the_post_meta( $loop_post_id, 'single-bottom' );
 
-		if ( post_type_supports( get_post_type( get_the_ID() ), 'author' ) && is_single() ) {
+		if ( post_type_supports( get_post_type( $loop_post_id ), 'author' ) && is_single() ) {
 
 			get_template_part( 'template-parts/entry-author-bio' );
 

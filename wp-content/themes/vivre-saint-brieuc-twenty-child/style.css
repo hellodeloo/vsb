@@ -191,6 +191,13 @@ h6,
    4. COULEURS — APPLICATION DE LA PALETTE
    ========================================================================== */
 
+.entry-content hr::before,
+.entry-content hr::after,
+hr.styled-separator::before,
+hr.styled-separator::after {
+  background: var(--color-primary);
+}
+
 /* Couleur principale (gris) sur tous les éléments de texte secondaire */
 .entry-content hr:not(.has-background),
 hr.styled-separator,
@@ -251,6 +258,24 @@ figcaption,
 /* Étiquettes de catégorie en rouge */
 .entry-categories-inner a {
   color: var(--color-red) !important;
+}
+
+/* Le template "Tous les articles" est une page singulière, on neutralise la
+   teinte de liens "singular" du thème parent pour retrouver le rendu home. */
+.template-tous-les-articles .entry-header .entry-title a,
+.template-tous-les-articles .entry-header .entry-title a:visited,
+.template-tous-les-articles .entry-header .entry-title a:hover,
+.template-tous-les-articles .entry-header .entry-title a:focus {
+  color: var(--color-black) !important;
+}
+
+.template-tous-les-articles .pagination-single .page-numbers.disabled,
+.template-tous-les-articles .pagination-single .previous-post.disabled,
+.template-tous-les-articles .pagination-single .next-post.disabled {
+  color: var(--color-primary) !important;
+  opacity: 0.6;
+  pointer-events: none;
+  cursor: default;
 }
 
 /* ==========================================================================
@@ -418,6 +443,15 @@ blockquote {
   a {
     font-weight: 500;
   }
+
+  a.all-articles {
+    justify-content: center;
+  }
+
+  .pagination-numbers {
+    display: flex;
+    gap: 1rem;
+  }
 }
 
 @media (min-width: 700px) {
@@ -524,17 +558,31 @@ blockquote {
   margin-bottom: 8rem;
 }
 
-#home-content .pagination-single a {
-  justify-content: center;
+#home-content .home-grid-item .entry-title {
+  text-wrap: balance;
+}
+
+#home-content .home-grid-item .featured-media {
+  display: none;
+}
+
+.singular #home-content .home-grid-item .entry-header {
+  background-color: transparent;
+  padding: 0;
 }
 
 @media (min-width: 1000px) {
   #home-content .home-grid {
     display: flex;
+
+    .home-grid-item {
+      flex: 0 0 auto;
+      width: 50%;
+    }
   }
 
   #home-content .home-grid-item {
-    margin-bottom: 0;
+    margin-bottom: 6rem;
   }
 }
 

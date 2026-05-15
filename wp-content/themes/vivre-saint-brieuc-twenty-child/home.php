@@ -6,6 +6,13 @@
  */
 
 get_header();
+
+$all_posts_page     = get_page_by_path( 'tous-les-articles' );
+$all_posts_page_url = $all_posts_page ? get_permalink( $all_posts_page ) : '';
+
+if ( ! $all_posts_page_url ) {
+  $all_posts_page_url = home_url( '/tous-les-articles/' );
+}
 ?>
 
 <main id="home-content">
@@ -49,7 +56,7 @@ get_header();
   <div class="pagination-single section-inner">
     <hr class="styled-separator is-style-wide" aria-hidden="true">
     <div class="pagination-single-inner">
-      <a href="<?php echo esc_url( $all_posts_page_url ); ?>"><?php esc_html_e( 'Voir tous les articles', 'vivre-saint-brieuc-twenty-child' ); ?></a>
+      <a href="<?php echo esc_url( $all_posts_page_url ); ?>" class="all-articles"><?php esc_html_e( 'Voir tous les articles', 'vivre-saint-brieuc-twenty-child' ); ?></a>
     </div>
     <hr class="styled-separator is-style-wide" aria-hidden="true">
   </div>
