@@ -61,25 +61,45 @@ Arreter, supprimer conteneurs + reseaux + volumes (attention: supprime les donne
 docker compose down -v
 ```
 
-## Import de base SQL
+## Script CLI local -> prod
 
-Importer un dump SQL dans la base locale:
+Produit un dump de la base locale avec les URLs prod, pret a importer manuellement via phpMyAdmin OVH.
 
-```bash
-docker compose exec -T db mysql -u root -p"${MYSQL_ROOT_PASSWORD:-root_password_change_me}" "${MYSQL_DATABASE:-wordpress_local}" < chemin/vers/dump.sql
-```
-
-Exemple:
+Configuration (une seule fois) :
 
 ```bash
-docker compose exec -T db mysql -u root -proot_password_change_me wordpress_local < ./dump.sql
+cp .env.sync.example .env.sync
+# .env.sync est ignore par Git, ne pas commiter
 ```
 
-## Export de base SQL
+Lancement :
 
 ```bash
-docker compose exec -T db mysqldump -u root -p"${MYSQL_ROOT_PASSWORD:-root_password_change_me}" "${MYSQL_DATABASE:-wordpress_local}" > ./dump-local.sql
+./.scripts/sync-local-to-prod.sh
 ```
+
+Le script :
+1. remplace les URLs locales par les URLs prod dans la base Docker (via WP-CLI)
+2. exporte le dump `.sql.gz` dans `./backups/`
+3. restaure les URLs locales dans la base Docker
+4. affiche le chemin du fichier a importer dans phpMyAdmin OVH
+
+Import prod -> local : exporter la base depuis phpMyAdmin OVH, placer le `.sql.gz` dans `./backups/`, puis importer manuellement :
+
+```bash
+gunzip -c ./backups/votre-dump.sql.gz | docker compose exec -T db mysql \
+  -u root -p"${MYSQL_ROOT_PASSWORD}" "${MYSQL_DATABASE}"
+```
+
+Puis remplacer les URLs prod par les URLs locales :
+
+```bash
+docker compose exec -T wordpress \
+  php /tmp/wp-cli.phar --allow-root --path=/var/www/html \
+  search-replace "https://vivre-saint-brieuc.bzh" "http://localhost:8080" \
+  --all-tables-with-prefix --precise --recurse-objects --skip-columns=guid
+```
+
 
 ## Reset base locale
 
@@ -89,24 +109,6 @@ Supprimer la base locale completement puis redemarrer:
 docker compose down -v
 docker compose up -d
 ```
-
-## Changement d'URL (si besoin)
-
-Si le dump contient encore l'URL de prod, ajuster:
-
-```bash
-docker compose exec -T db mysql -u root -proot_password_change_me wordpress_local -e "UPDATE mod917_options SET option_value='http://localhost:8080' WHERE option_name IN ('siteurl','home');"
-```
-
-## Theme enfant Twenty Twenty-Five
-
-Theme cree:
-
-- `wp-content/themes/vivre-saint-brieuc-child/style.css`
-- `wp-content/themes/vivre-saint-brieuc-child/functions.php`
-- `wp-content/themes/vivre-saint-brieuc-child/theme.json`
-
-Activer dans l'admin WordPress: Apparence > Themes > **Vivre Saint-Brieuc Child**
 
 ## Depannage rapide
 

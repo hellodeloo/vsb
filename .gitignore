@@ -12,11 +12,13 @@ deploy.sh
 .env
 .env.*
 !.env.example
+!.env.sync.example
 wp-config.php
 *.sql
 *.sql.gz
 
 # WordPress core (ne pas commiter)
+.backups/
 wp-admin/
 wp-includes/
 wp-content/uploads/
