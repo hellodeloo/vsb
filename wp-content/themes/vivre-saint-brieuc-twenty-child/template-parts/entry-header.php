@@ -58,24 +58,6 @@ if ( ! $is_list_context ) {
 			the_title( '<h1 class="entry-title">', '</h1>' );
 		}
 
-		$intro_text_width = '';
-
-		if ( ! $is_list_context ) {
-			$intro_text_width = ' small';
-		} else {
-			$intro_text_width = ' thin';
-		}
-
-		if ( has_excerpt() && ! $is_list_context ) {
-			?>
-
-			<div class="intro-text section-inner max-percentage<?php echo $intro_text_width; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static output ?>">
-				<?php the_excerpt(); ?>
-			</div>
-
-			<?php
-		}
-
 		// Default to displaying the post meta.
 		twentytwenty_the_post_meta( get_the_ID(), 'single-top' );
 		?>

@@ -289,6 +289,12 @@ figcaption,
   }
 }
 
+@media (min-width: 1220px) {
+  h1, .heading-size-1, h2.entry-title {
+    font-size: 6.8rem;
+  }
+}
+
 /* ==========================================================================
    6. CONTENU — LARGEUR MAX ET MISE EN PAGE
    ========================================================================== */
@@ -416,8 +422,9 @@ figcaption,
 /* Blockquote : bordure verte, texte gris, italique */
 blockquote {
   border-color: var(--color-green) !important;
-  color: var(--color-primary);
+  color: var(--color-green);
   font-style: italic;
+  font-weight: 700;
 }
 
 /* Pullquote : italique, décoratif en vert */

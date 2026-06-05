@@ -56,11 +56,11 @@ msgctxt "Pattern title"
 msgid "List of posts without images, 1 column"
 msgstr "Liste des publications sans images, 1 colonne"
 
-#: functions.php:200
+#: functions.php:188
 msgid "A collection of full page layouts."
 msgstr "Une collection de mises en pages pleine page."
 
-#: functions.php:199
+#: functions.php:187
 msgctxt "Block pattern category"
 msgid "Pages"
 msgstr "Pages"
@@ -430,7 +430,7 @@ msgctxt "Color name"
 msgid "Base / 2"
 msgstr "Base / 2"
 
-#: functions.php:28
+#: functions.php:24
 msgid "Arrow icon"
 msgstr "Icône flèche"
 
@@ -448,19 +448,19 @@ msgctxt "Pattern title"
 msgid "Hero"
 msgstr "Bannière d’accroche"
 
-#: functions.php:93
+#: functions.php:89
 msgid "With arrow"
 msgstr "Avec flèche"
 
-#: functions.php:74
+#: functions.php:70
 msgid "Checkmark"
 msgstr "Coche"
 
-#: functions.php:51
+#: functions.php:47
 msgid "Pill"
 msgstr "Arrondi"
 
-#: functions.php:111
+#: functions.php:107
 msgid "With asterisk"
 msgstr "Avec astérisque"
 
